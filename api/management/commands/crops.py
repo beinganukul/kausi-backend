@@ -16,7 +16,7 @@ class Command(BaseCommand):
             with open("crops.json", 'r') as fh:
                 crop_data = json.load(fh)      
             for crop in crop_data:
-                new_crop = Crop.objects.create(**crop)
+                Crop.objects.create(**crop)
             self.stdout.write(self.style.SUCCESS("Crop Data Successfully Inserted"))
         except:
             raise CommandError("There may be some fault in Crop data")
